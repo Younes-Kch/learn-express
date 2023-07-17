@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-const stuffRoutes = require('./routes/stuff');
-
+const stuffRoutes = require("./routes/stuff");
+const userRoutes = require("./routes/user");
 mongoose
   .connect(
     "mongodb+srv://kechicheyounes:1DclQt63mmW2wueE@cluster0.ol9nf9y.mongodb.net/?retryWrites=true&w=majority",
@@ -27,6 +27,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api/stuff/', stuffRoutes)
-
+app.use("/api/stuff/", stuffRoutes);
+app.use("/api/auth", userRoutes)
 module.exports = app;
